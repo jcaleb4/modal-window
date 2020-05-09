@@ -1,0 +1,85 @@
+.btn {
+  height: 40px;
+  line-height: 38px;
+  font-size: 14.5px;
+  letter-spacing: 0.55px;
+  padding: 0px 16px;
+  text-align: center;
+  display: inline-block;
+  color: nth($bluescale, 1);
+  font-family: $redHat;
+  border-radius: 4px;
+  white-space: nowrap;
+  background-color: $white;
+  border: 1px solid nth($grayscale, 1);
+  margin-left: 8px;
+  box-shadow: 0px 3px 5px 3px rgba(nth($grayscale, 2), 0.2);
+  transition: all 200ms;
+
+  &:hover {
+    color: $white;
+    background-color: nth($bluescale, 1);
+    border-color: nth($bluescale, 1);
+    box-shadow: 0px 3px 5px 3px rgba(nth($grayscale, 3), 0);
+  }
+
+  &.enfasis {
+    background: nth($bluescale, 1);
+    color: $white;
+    border-color: nth($bluescale, 1);
+    box-shadow: 0px 3px 5px 3px rgba(nth($bluescale, 1), 0.2);
+
+    &:hover {
+      background-color: $white;
+      color: nth(nth($bluescale, 1), 1);
+      box-shadow: 0px 3px 5px 3px rgba(nth($bluescale, 1), 0);
+    }
+  }
+}
+
+/* Ripple magic */
+.ripple{
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple{
+    &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba($white, .5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+  }
+
+  &.enfasis {
+    &::after {
+      background: rgba(nth($bluescale, 1), .5);
+    }
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 1;
+  }
+  20% {
+    transform: scale(25, 25);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(40, 40);
+  }
+}
+
+.ripple:focus:not(:active)::after {
+  animation: ripple 1s ease-out;
+}
