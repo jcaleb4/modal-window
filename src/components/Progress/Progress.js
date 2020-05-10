@@ -4,7 +4,7 @@ import './Progress.scss';
 const Progress = ({closeModal, progressData}) => {
     useEffect(() => {}, [progressData]);
 
-    const progressSteps = () => (progressData.steps.sort((a, b) => a.order - b.order).map((step, index) => {
+    const progressSteps = () => (progressData.steps.map((step, index) => {
         const date = step.lastUpdated ? new Date(step.lastUpdated) : null;
         return (
             <li key={`step-${index}`} alt-index={index + 1} className={`progress__item ${step.complete ? 'passed' : ''}`}>

@@ -2,8 +2,9 @@
 
 .progress {
     &__scroll {
-        max-height: 60vh;
+        max-height: calc(60vh - 30px);
         overflow-y: scroll;
+        margin-bottom: 30px;
     }
 
     &__header {
@@ -42,7 +43,7 @@
 
     &__list {
         display: flex;
-        padding-bottom: 46px;
+        padding-bottom: 16px;
         justify-content: center;
         align-content: center;
         flex-wrap: nowrap;
@@ -261,7 +262,6 @@
             max-width: 350px;
             flex-direction: column;
             margin: 0 auto;
-            padding-bottom: 20px;
         }
     
         &__item {
