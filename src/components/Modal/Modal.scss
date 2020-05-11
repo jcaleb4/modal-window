@@ -26,8 +26,8 @@
         display: block;
         background: nth($bluescale, 3);
         background: linear-gradient(90deg, nth($bluescale, 3) 0%, nth($bluescale, 2) 100%);
-        animation: gradient 3s ease infinite;
-        background-size: 400% 100%;
+        // animation: gradient 3s ease infinite;
+        // background-size: 400% 100%;
     }
 
     &.top {
