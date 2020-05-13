@@ -3,8 +3,8 @@
 .progress {
     &__scroll {
         max-height: 450px;
-        overflow-y: scroll;
         margin-bottom: 30px;
+        overflow-y: auto;
     }
 
     &__header {
@@ -15,11 +15,11 @@
     }
 
     &__title {
+        color: $bluescale;
         font-size: 19px;
         font-weight: 500;
-        padding: 6px 0 12px;
         letter-spacing: 0.25px;
-        color: $bluescale;
+        padding: 6px 0 12px;
     }
 
     &__subtitle {
@@ -33,20 +33,21 @@
         border-radius: 2px;
         background-color: nth($redscale, 1);
         color: $white;
-        padding: 0px 9px;
-        margin: 6px 0 0 9px;
-        line-height: 21px;
-        height: 20px;
-        letter-spacing: 0.45px;
         font-size: 12px;
+        height: 20px;
+        line-height: 21px;
+        letter-spacing: 0.45px;
+        margin: 6px 0 0 9px;
+        padding: 0px 9px;
     }
 
     &__list {
+        align-content: center;
         display: flex;
+        flex-wrap: nowrap;
         padding-bottom: 16px;
         justify-content: center;
-        align-content: center;
-        flex-wrap: nowrap;
+        
     }
 
     &__item {
@@ -59,44 +60,44 @@
         flex-basis: 145.35px;
 
         &::before {
+            background-color: nth($grayscale, 2);
             content: '';
             display: block;
-            width: 100%;
             height: 2px;
             position: absolute;
-            top: 19px;
             right: 50%;
-            background-color: nth($grayscale, 2);
+            top: 19px;
+            width: 100%;
             z-index: 1;
         }
 
         &::after {
-            content: attr(alt-index);
-            border-radius: 50%;
-            display: block;
-            width: 24px;
-            height: 24px;
-            line-height: 24px;
-            text-align: center;
             background-color: nth($grayscale, 2);
-            color: $white;
-            position: absolute;
-            top: 3px;
-            left: 50%;
-            transform: translateX(-50%);
+            border-radius: 50%;
             border: 5px solid $white;
             box-sizing: content-box;
-            z-index: 2;
+            color: $white;
+            content: attr(alt-index);
+            display: block;
             font-size: 15px;
             font-weight: 500;
+            height: 24px;
+            left: 50%;
+            line-height: 24px;
+            position: absolute;
+            text-align: center;
+            top: 3px;
+            transform: translateX(-50%);
+            width: 24px;
+            z-index: 2;
         }
 
         &.passed {
             &::after {
-                content: '\ed71';
-                font-family: $icons;
                 background-color: $white;
                 color: nth($greenscale, 1);
+                content: '\ed71';
+                font-family: $icons;
                 font-size: 23px;
             }
 
@@ -106,27 +107,27 @@
         }
 
         &__title {
-            font-size: 15px;
-            padding: 0;
-            line-height: 17px;
-            color: nth($grayscale, 4);
-            height: 33px;
             box-sizing: content-box;
+            color: nth($grayscale, 4);
+            font-size: 15px;
+            height: 33px;
+            line-height: 17px;
+            padding: 0;
         }
 
         &__time {
+            color: nth($grayscale, 6);
             font-size: 13px;
             letter-spacing: 0.5px;
-            color: nth($grayscale, 6);
         }
 
         &__date {
-            padding-top: 11px;
+            color: nth($grayscale, 7);
             display: block;
             font-size: 13px;
             font-weight: 500;
             letter-spacing: 0.3px;
-            color: nth($grayscale, 7);
+            padding-top: 11px;
         }
 
         &:first-child {
@@ -161,8 +162,8 @@
     
                 .progress__item {
                     &__title {
-                        text-indent: -11px;
                         letter-spacing: 0.4px;
+                        text-indent: -11px;
                     }
     
                     &__time {
@@ -182,8 +183,8 @@
     
                 .progress__item {
                     &__title {
-                        text-indent: -8px;
                         letter-spacing: 0.6px;
+                        text-indent: -8px;
                     }
     
                     &__time {
@@ -203,8 +204,8 @@
     
                 .progress__item {
                     &__title {
-                        text-indent: -2px;
                         letter-spacing: 0.5px;
+                        text-indent: -2px;
                     }
     
                     &__time {
@@ -223,8 +224,8 @@
                 }
     
                 .progress__item__title {
-                    text-indent: 4px;
                     letter-spacing: 0.5px;
+                    text-indent: 4px;
                 }
             }
     
@@ -234,21 +235,21 @@
                 }
     
                 .progress__item__title {
-                    text-indent: 10px;
                     letter-spacing: 0.5px;
+                    text-indent: 10px;
                 }
             }
     
             &:last-child {
                 &::after {
-                    transform: translateX(calc(-50% + 7px));
                     border-width: 2px;
                     top: 6px;
+                    transform: translateX(calc(-50% + 7px));
                 }
     
                 .progress__item__title {
-                    text-indent: 14px;
                     letter-spacing: 0.4px;
+                    text-indent: 14px;
                 }
             }
         }
@@ -258,24 +259,24 @@
 @media (max-width: 730px) {
     .progress {
         &__list {
-            width: 100%;
-            max-width: 350px;
             flex-direction: column;
             margin: 0 auto;
+            max-width: 350px;
+            width: 100%;
         }
     
         &__item {
-            padding: 20px 20px 20px 60px;
-            flex-basis: 70px;
-            display: flex;
-            justify-content: space-between;
             align-items: center;
+            display: flex;
+            flex-basis: 70px;
+            justify-content: space-between;
+            padding: 20px 20px 20px 60px;
 
             &__title {
+                flex-grow: 2;
                 height: auto;
                 text-align: left;
                 white-space: nowrap;
-                flex-grow: 2;
             }
 
             &__time {
@@ -288,15 +289,15 @@
             }
 
             &::before {
-                width: 3px;
                 height: 100%;
-                top: -50%;
                 left: 15px;
+                top: -50%;
+                width: 3px;
             }
 
             &::after {
-                top: 50%;
                 left: 0px;
+                top: 50%;
                 transform: translateY(-50%);
             }
         }
@@ -311,9 +312,9 @@
         }
 
         &__status {
-            order: 1;
             flex-grow: 0;
             margin: 0;
+            order: 1;
         }
     
         &__title {
@@ -339,8 +340,8 @@
 
             &__time,
             &__title {
-                width: 100%;
                 text-align: left;
+                width: 100%;
             }
 
             &__time {
@@ -353,16 +354,16 @@
 @media (max-width: 410px) {
     .buttons {
         &__container {
-            text-align: center;
             display: flex;
             justify-content: space-between;
+            text-align: center;
 
             .btn {
-                max-width: calc(50% - 4px);
+                flex-grow: 2;
                 margin: 0;
+                max-width: calc(50% - 4px);
                 padding: 0;
                 text-align: center;
-                flex-grow: 2;
             }
         }
     }
