@@ -2,7 +2,7 @@
 
 .progress {
     &__scroll {
-        max-height: calc(60vh - 30px);
+        max-height: 450px;
         overflow-y: scroll;
         margin-bottom: 30px;
     }

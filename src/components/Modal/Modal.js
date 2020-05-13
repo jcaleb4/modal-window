@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState, memo, cloneElement} from 'react';
 import { CSSTransition } from 'react-transition-group';
 import './Modal.scss';
 
@@ -16,7 +16,7 @@ const Modal = ({ children, closeHandler, isOpen, direction }) => {
     const closeBtn = <button className="icon-cross2 closeBtn" onClick={() => closeHandler(direction)}></button>;
 
     // Cloning children in order to pass down closeModal function instead of sending it from the parent container
-    const childrenContent = React.cloneElement(children, { closeModal: () => closeHandler(direction) });
+    const childrenContent = cloneElement(children, { closeModal: () => closeHandler(direction) });
 
     const shadowOverlay = (
         <CSSTransition in={isOpen} timeout={300} classNames="shadow" unmountOnExit >
@@ -52,4 +52,4 @@ const Modal = ({ children, closeHandler, isOpen, direction }) => {
     return direction ? modalTemplate(centerModal) : modalTemplate(topModal);
 }
 
-export default React.memo(Modal);
+export default memo(Modal);

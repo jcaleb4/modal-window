@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, memo } from 'react';
 import './Progress.scss';
 
 const Progress = ({closeModal, progressData}) => {
@@ -55,4 +55,4 @@ const Progress = ({closeModal, progressData}) => {
     );
 }
 
-export default React.memo(Progress);
+export default memo(Progress);
