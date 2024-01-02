@@ -24,7 +24,7 @@ jobs:
       - run: npm run rewrites
       - name: Changed files
         id: changed-files
-        uses: tj-actions/changed-files@v2.1
+        uses: tj-actions/changed-files@v41
       - name: Generate commit
         if: contains(steps.changed-files.outputs.modified_files, 'vercel')
         uses: EndBug/add-and-commit@v7
